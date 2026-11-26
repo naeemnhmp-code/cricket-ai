@@ -426,3 +426,16 @@ elif page == "Match History":
 st.markdown("---")
 
 st.caption("🏏 CRICKET AI · PRIVATE TESTING PROTOTYPE")
+# TEMPORARY DATASPORTSAPI CONNECTION TEST
+import cricket_api
+
+st.divider()
+st.subheader("🔌 DataSportsAPI Connection Test")
+
+if st.button("Test API Connection"):
+    try:
+        data = cricket_api.get_live_cricket_scores()
+        st.success("API request completed!")
+        st.json(data)
+    except Exception as e:
+        st.error(f"API connection failed: {e}")
